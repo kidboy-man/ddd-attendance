@@ -9,7 +9,9 @@ import (
 	"gorm.io/gorm"
 )
 
-func Init() (err error) {
+var con *gorm.DB
+
+func Setup() (err error) {
 	dbUri := fmt.Sprintf(
 		"host=%s port=%s, user=%s dbname=%s sslmode=disable password=%s",
 		configs.AppConfig.DBHost,
@@ -26,11 +28,11 @@ func Init() (err error) {
 		return
 	}
 
-	configs.AppConfig.DBConnection = db
+	con = db
 	return
 }
 
 // returns a handle to the DB object
 func GetDB() *gorm.DB {
-	return configs.AppConfig.DBConnection
+	return con
 }

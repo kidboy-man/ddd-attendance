@@ -2,7 +2,7 @@ package constant
 
 // repositories
 const (
-	QueryInternalServerErrCode = 2001 + iota
+	QueryFailureErrCode = 1001 + iota
 	QueryNotFoundErrCode
 	OrmHookValidationErrCode
 )

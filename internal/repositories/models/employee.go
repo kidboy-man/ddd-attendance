@@ -6,9 +6,9 @@ import (
 	"strings"
 
 	"github.com/google/uuid"
-	entity "github.com/kidboy-man/ddd-attendance/internal/domain/entities"
-	constant "github.com/kidboy-man/ddd-attendance/internal/domain/repositories/constants"
-	schema "github.com/kidboy-man/ddd-attendance/internal/schemas"
+	entity "github.com/kidboy-man/ddd-attendance/internal/entities"
+	generic "github.com/kidboy-man/ddd-attendance/internal/generics"
+	constant "github.com/kidboy-man/ddd-attendance/internal/repositories/constants"
 	"gorm.io/gorm"
 )
 
@@ -40,7 +40,7 @@ func (e *Employee) FromEntity(en entity.Employee) {
 func (e *Employee) setAttr() (err error) {
 	e.Name = strings.TrimSpace(e.Name)
 	if e.CompanyID == uuid.Nil {
-		err = &schema.CustomError{
+		err = &generic.CustomError{
 			Code:       constant.OrmHookValidationErrCode,
 			HTTPStatus: http.StatusInternalServerError,
 			Message:    "Incomplete employee data, missing required values",

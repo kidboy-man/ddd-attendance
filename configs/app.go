@@ -8,22 +8,21 @@ import (
 	"time"
 
 	"github.com/joho/godotenv"
-	"gorm.io/gorm"
 )
 
 type Config struct {
 	AppPort string
-
-	DBHost       string
-	DBPort       string
-	DBName       string
-	DBUser       string
-	DBPassword   string
-	DBConnection *gorm.DB
-
+	DBConfig
 	JWTConfig
 }
 
+type DBConfig struct {
+	DBHost     string
+	DBPort     string
+	DBName     string
+	DBUser     string
+	DBPassword string
+}
 type JWTConfig struct {
 	JWTSignatureKey     string
 	JWTPublicKey        string

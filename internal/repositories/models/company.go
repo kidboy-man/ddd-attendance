@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"github.com/google/uuid"
-	entity "github.com/kidboy-man/ddd-attendance/internal/domain/entities"
+	entity "github.com/kidboy-man/ddd-attendance/internal/entities"
 	"gorm.io/gorm"
 )
 

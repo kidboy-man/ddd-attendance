@@ -1,4 +1,4 @@
-package schema
+package generic
 
 type CustomError struct {
 	Code       int    `json:"code"`
